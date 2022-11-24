@@ -11,5 +11,5 @@ Storybrew project of [Camellia Supermix](https://osu.ppy.sh/beatmapsets/1821204)
 - [X] Add Song Timeline
 - [X] Add Swipe Transition
 - [X] Change Swipe Transition Colour
-- [ ] Change Spectrum Bar Colour to Fit Collab Section
-- [ ] Refactor CamelliaSupermix Script
+- [X] Change Spectrum Bar Colour to Fit Collab Section
+- [X] Refactor CamelliaSupermix Script
