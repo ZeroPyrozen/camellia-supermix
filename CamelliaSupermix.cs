@@ -130,36 +130,7 @@ namespace StorybrewScripts
         void Timeline(int startTime, int endTime)
         {
             var beatDuration = Beatmap.GetTimingPointAt(startTime).BeatDuration / 4;
-            double lineOpacity = 0.65;
-            // var upperLine = GetLayer("Timeline").CreateSprite("sb/p.png", OsbOrigin.TopLeft, new Vector2(-107, 0));
-            // var lowerLine = GetLayer("Timeline").CreateSprite("sb/p.png", OsbOrigin.BottomRight, new Vector2(747, 139));
-            // var leftLine = GetLayer("Timeline").CreateSprite("sb/p.png", OsbOrigin.TopLeft, new Vector2(-107, 10));
-            // var rightLine = GetLayer("Timeline").CreateSprite("sb/p.png", OsbOrigin.BottomRight, new Vector2(747, 129));
-
-            
-
-            // upperLine.Fade(startTime, lineOpacity);
-            // upperLine.Fade(endTime + beatDuration, 0);
-            // upperLine.ScaleVec(OsbEasing.None, startTime, endTime, 10, 10, 854, 10);
-            // upperLine.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, 854, 10, 854, 0);
-
-            // lowerLine.Fade(startTime, lineOpacity);
-            // lowerLine.Fade(endTime + beatDuration, 0);
-            // lowerLine.ScaleVec(OsbEasing.None, startTime, endTime, 10, 10, 854, 10);
-            // lowerLine.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, 854, 10, 854, 0);
-
-            // leftLine.Fade(startTime, lineOpacity);
-            // leftLine.Fade(endTime + beatDuration, 0);
-            // leftLine.ScaleVec(OsbEasing.None, startTime, endTime, 10, 0, 10, 119);
-            // leftLine.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, 10, 119, 0, 119);
-
-            // rightLine.Fade(startTime, lineOpacity);
-            // rightLine.Fade(endTime + beatDuration, 0);
-            // rightLine.ScaleVec(OsbEasing.None, startTime, endTime, 10, 0, 10, 119);
-            // rightLine.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, 10, 119, 0, 119);
-
-            //Experimental
-            lineOpacity = 0.4;
+            double lineOpacity = 0.4;
             var upperLeftCornerPosition = new Vector2(2, 278);
             var bottomRightCornerPosition = new Vector2(182, 458);
             var lineThickness = 5;
