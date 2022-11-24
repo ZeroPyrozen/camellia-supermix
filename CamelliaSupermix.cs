@@ -8,14 +8,16 @@ using StorybrewCommon.Subtitles;
 using StorybrewCommon.Util;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 
 namespace StorybrewScripts
 {
     public class CamelliaSupermix : StoryboardObjectGenerator
     {
-        FontGenerator collabNameGenerator;
-        FontGenerator songTitleGenerator;
+        private FontGenerator mapperFontGenerator;
+        private FontGenerator titleFontGenerator;
+
         public override void Generate()
         {
             Initialization();
@@ -24,7 +26,7 @@ namespace StorybrewScripts
             SlideShow("U.U.F.O..jpg", 56548, 87413, "We Magicians Still Alive in 2021", "Capu");
             SlideShow("U.U.F.O..jpg", 87348, 118510, "CICADA3302", "JarvisGaming");
             SlideShow("heart of android.jpg", 118510, 131283, "Alone Intelligence", "Ph0eNiiXZ");
-            SlideShow("Blackmagik Blazing.jpg", 131283, 155333, "We Could Get More Machinegun      \nPsystyle! (And More Genre Switches)", "Hivie");
+            SlideShow("Blackmagik Blazing.jpg", 131283, 155333, "We Could Get More Machinegun\nPsystyle! (And More Genre Switches)", "Hivie");
             SlideShow("Blackmagik Blazing.jpg", 155333, 179333, "KillerBeast", "rubies87");
             SlideShow("crystallized.jpg", 179333, 201789, "First Town Of This Journey", "rubies87");
             SlideShow("crystallized.jpg", 201789, 223878, "Crystallized", "Hivie");
@@ -39,10 +41,12 @@ namespace StorybrewScripts
 
         void Initialization()
         {
+            double beatDuration = GetBeatDuration(0);
+
             var playfieldBar = GetLayer("Playfield").CreateSprite("sb/p.png", OsbOrigin.TopLeft, new Vector2(-107, 139));
             playfieldBar.Fade(0, 1);
             playfieldBar.Fade(417086, 0);
-            playfieldBar.ScaleVec(OsbEasing.OutExpo, 0, 377, 0, 116, 854, 116);
+            playfieldBar.ScaleVec(OsbEasing.OutExpo, 0, beatDuration * 3, 0, 116, 854, 116);
             playfieldBar.Color(0, Color4.Black);
 
             var backgroundOverlay = GetLayer("BackgroundOverlay").CreateSprite("sb/p.png", OsbOrigin.Centre, new Vector2(320, 240));
@@ -57,67 +61,117 @@ namespace StorybrewScripts
             timeBar.Additive(0, 412956);
             timeBar.ScaleVec(377, 417086, 0, 5, 854, 5);
 
-            collabNameGenerator = LoadFont("sb/c", new FontDescription{
+            OsbSprite gradient = GetLayer("Gradient").CreateSprite("sb/grad.png", OsbOrigin.CentreRight, new Vector2(210, 328));
+            gradient.ScaleVec(OsbEasing.OutExpo, beatDuration * 0.75, beatDuration * 2.75, 0, 0.6, 0.05, 0.6);
+            gradient.Fade(0, 0.25);
+            gradient.Fade(412956, 0);
+            gradient.Additive(0, 412956);
+            gradient.FlipH(0, 412956);
+
+            OsbSprite verticalLine = GetLayer("Gradient").CreateSprite("sb/p.png", OsbOrigin.CentreLeft, new Vector2(210, 328));
+            verticalLine.ScaleVec(OsbEasing.OutExpo, 0, beatDuration * 2, 2, 0, 2, 60);
+            verticalLine.Fade(0, 1);
+            verticalLine.Fade(412956, 0);
+
+            OsbSprite solid = GetLayer("Solid").CreateSprite("sb/p.png");
+            solid.ScaleVec(412956, 854, 480);
+            solid.Fade(412956, 1);
+            solid.Fade(435044, 0);
+            solid.Color(412956, Color4.Black);
+
+            mapperFontGenerator = LoadFont("sb/f/m", new FontDescription
+            {
                 Color = Color4.White,
                 Debug = false,
                 EffectsOnly = false,
-                FontPath = "Plus Jakarta Sans",
-                FontSize = 22,
+                FontPath = "fonts/Monorale-Regular.otf",
+                FontSize = 60,
                 FontStyle = System.Drawing.FontStyle.Regular,
                 Padding = Vector2.Zero,
                 TrimTransparency = true
             });
 
-            songTitleGenerator = LoadFont("sb/m", new FontDescription{
+            titleFontGenerator = LoadFont("sb/f/t", new FontDescription
+            {
                 Color = Color4.White,
                 Debug = false,
                 EffectsOnly = false,
-                FontPath = "#9Slide03 Montserrat SemiBold",
-                FontSize = 36,
+                FontPath = "fonts/#9Slide03 Montserrat SemiBold.ttf",
+                FontSize = 60,
                 FontStyle = System.Drawing.FontStyle.Regular,
                 Padding = Vector2.Zero,
                 TrimTransparency = true
             });
         }
 
-        void SlideShow(string albumImage, int startTime, int endTime, string songTitle, string collaborator)
+        void SlideShow(string albumImage, double startTime, double endTime, string songTitle, string mapper)
         {
-            var time_lag = Beatmap.GetTimingPointAt(startTime).BeatDuration / 0.25;
-            var album = GetLayer("Metadata").CreateSprite("sb/a/"+albumImage, OsbOrigin.CentreLeft, new Vector2(12, 367.5f));
+            var album = GetLayer("Metadata").CreateSprite("sb/a/" + albumImage, OsbOrigin.CentreLeft, new Vector2(12, 367.5f));
             album.Fade(startTime, 1);
             album.Fade(endTime, 0);
             album.Scale(startTime, 0.25);
 
-            var collabText = collabNameGenerator.GetTexture(collaborator);
-            var collabSprite = GetLayer("Metadata").CreateSprite(collabText.Path, OsbOrigin.BottomLeft, new Vector2(192, 445));
-            collabSprite.Fade(startTime, 1);
-            collabSprite.Scale(startTime, 0.75);
-            collabSprite.Fade(endTime, 0);
-
-
-            var songText = songTitleGenerator.GetTexture(songTitle);
-            var songSprite = GetLayer("Metadata").CreateSprite(songText.Path, OsbOrigin.TopLeft, new Vector2(192, 288));
-            songSprite.Fade(startTime, 1);
-            if(songTitle.Length < "We Could Get More Machinegun      \nPsystyle! (And More Genre Switches)".Length)
+            if (songTitle.Contains("\n"))
             {
-                if(songTitle.Length < "We Magicians Still Alive in 2021".Length)
-                {
-                    songSprite.Scale(startTime, 0.65);
-                    collabSprite.MoveY(startTime, 345);
-                } 
-                else
-                {
-                    songSprite.Scale(startTime, 0.55);
-                    collabSprite.MoveY(startTime, 345);
-                }
-                    
+                string[] songTitleSplit = songTitle.Split('\n');
+
+                GenerateText("title", songTitleSplit[0], startTime, endTime, new Vector2(218, 288), 0.25f);
+                GenerateText("title", songTitleSplit[1], startTime, endTime, new Vector2(218, 312), 0.15f);
             }
-            else    
+            else
             {
-                songSprite.Scale(startTime, 0.45);
-                collabSprite.MoveY(startTime, 380);
+                GenerateText("title", songTitle, startTime, endTime, new Vector2(218, 288), 0.4f);
             }
-            songSprite.Fade(endTime, 0);
+
+            GenerateText("mapper", mapper, startTime, endTime, new Vector2(218, 330), 0.3f);
         }
+
+        private void GenerateText(string type, string sentence, double startTime, double endTime, Vector2 startPosition, float fontScale = 0.35f)
+        {
+            FontGenerator fontGenerator = GetFontGenerator(type);
+            float letterX = startPosition.X;
+            double delay = 0;
+            double beatDuration = GetBeatDuration(startTime);
+
+            foreach (char letter in sentence)
+            {
+                FontTexture texture = fontGenerator.GetTexture(letter.ToString());
+                if (!texture.IsEmpty)
+                {
+                    Vector2 position = new Vector2(letterX, startPosition.Y) + texture.OffsetFor(OsbOrigin.CentreLeft) * fontScale;
+                    Log(position);
+                    OsbSprite sprite = GetLayer("Metadata").CreateSprite(texture.Path, OsbOrigin.CentreLeft, position);
+
+                    // In animation
+                    sprite.MoveX(OsbEasing.OutExpo, startTime + delay, startTime + delay + beatDuration * 4, startPosition.X, position.X);
+                    sprite.ScaleVec(OsbEasing.OutExpo, startTime + delay, startTime + delay + beatDuration * 3, 0, fontScale, fontScale, fontScale);
+                    sprite.Fade(startTime + delay, startTime + delay + beatDuration * 2, 0, 1);
+
+                    // Out animation
+                    sprite.MoveX(OsbEasing.InExpo, endTime - delay - beatDuration * 4, endTime - delay, position.X, startPosition.X);
+                    sprite.ScaleVec(OsbEasing.InExpo, endTime - delay - beatDuration * 3, endTime - delay, fontScale, fontScale, 0, fontScale);
+                    sprite.Fade(endTime - delay - beatDuration * 2, endTime - delay, 1, 0);
+
+                    delay += beatDuration / 24;
+                }
+
+                letterX += texture.BaseWidth * fontScale;
+            }
+        }
+
+        private FontGenerator GetFontGenerator(string type)
+        {
+            switch (type)
+            {
+                case "title":
+                    return titleFontGenerator;
+
+                default:
+                    return mapperFontGenerator;
+            }
+        }
+
+        private double GetBeatDuration(double time)
+            => Beatmap.GetTimingPointAt((int)time).BeatDuration;
     }
 }

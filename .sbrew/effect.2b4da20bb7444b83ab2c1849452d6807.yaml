@@ -28,6 +28,6 @@ Config:
 Layers:
   222426fb41f647158b9bdad84119fe28:
     Name: "Transition"
-    OsbLayer: Background
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes

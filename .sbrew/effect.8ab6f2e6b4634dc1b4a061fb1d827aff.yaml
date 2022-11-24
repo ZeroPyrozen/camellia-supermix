@@ -11,7 +11,7 @@ Config:
     Value: "417086"
   Position:
     Type: "OpenTK.Vector2"
-    Value: "192,458"
+    Value: "192,365"
   Gap:
     Type: "System.Int32"
     Value: "4"
@@ -29,7 +29,7 @@ Config:
     Value: "sb/p.png"
   SpriteOrigin:
     Type: "System.Int32"
-    Value: "6"
+    Value: "0"
     AllowedValues:
       TopLeft: "0"
       TopCentre: "1"
@@ -42,7 +42,7 @@ Config:
       BottomRight: "8"
   Scale:
     Type: "OpenTK.Vector2"
-    Value: "1,60"
+    Value: "1,45"
   LogScale:
     Type: "System.Int32"
     Value: "600"
@@ -54,7 +54,7 @@ Config:
     Value: "1"
   MinimalHeight:
     Type: "System.Single"
-    Value: "0.05"
+    Value: "0.2"
   FftEasing:
     Type: "System.Int32"
     Value: "18"
@@ -102,8 +102,18 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
+  a3515e784e704e18a17d9baaf52ff7e0:
+    Name: "Gradient"
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes
   1961c9059ed7462ca9bc0b676323f87b:
     Name: "Spectrum"
-    OsbLayer: Background
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes
+  beeaedd6eef048cd9c1948fe0a621788:
+    Name: "Horizontal Line"
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes

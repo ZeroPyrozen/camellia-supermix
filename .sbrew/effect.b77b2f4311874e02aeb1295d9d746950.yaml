@@ -31,6 +31,6 @@ Config:
 Layers:
   7020c11caba34f759138755075744d7c:
     Name: "Timeline"
-    OsbLayer: Background
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes

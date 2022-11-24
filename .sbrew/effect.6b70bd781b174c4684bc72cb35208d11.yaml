@@ -13,13 +13,23 @@ Layers:
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes
-  0a8b43552b354dea9f97c8164a117cae:
-    Name: "Playfield"
-    OsbLayer: Background
+  5703d36d3bdb493ea12741338d3df069:
+    Name: "Gradient"
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes
   a904ef24f5484820a0c19220908610e0:
     Name: "Metadata"
-    OsbLayer: Background
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes
+  9648270d9e40483eb50a12e24b343f22:
+    Name: "Solid"
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes
+  0a8b43552b354dea9f97c8164a117cae:
+    Name: "Playfield"
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes
