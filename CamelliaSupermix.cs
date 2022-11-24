@@ -132,7 +132,6 @@ namespace StorybrewScripts
                 if (!texture.IsEmpty)
                 {
                     Vector2 position = new Vector2(letterX, startPosition.Y) + texture.OffsetFor(OsbOrigin.CentreLeft) * fontScale;
-                    Log(position);
                     OsbSprite sprite = GetLayer("Metadata").CreateSprite(texture.Path, OsbOrigin.CentreLeft, position);
 
                     // In animation
