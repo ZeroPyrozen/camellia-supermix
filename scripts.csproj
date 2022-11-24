@@ -52,7 +52,6 @@
   </Target>
   -->
   <ItemGroup>
-    <Compile Include="BGFloat.cs" />
     <Compile Include="CamelliaSupermix.cs" />
     <Compile Include="RemoveBackground.cs" />
     <Compile Include="Spectrum.cs" />
