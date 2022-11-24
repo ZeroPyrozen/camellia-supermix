@@ -15,7 +15,7 @@ namespace StorybrewScripts
         {
             Initialization();
             SlideShow("Blackmagik Blazing.jpg", 377, 30965, "Lúin Øf CeltchaЯ", "Capu");
-            SlideShow("60+3+10k.jpg", 30965, 56548, "Newspapers for Magicians", "Dusk");
+            SlideShow("60+3+10k.jpg", 30965, 56548, "Newspapers for Magicians", "Dusk-");
             SlideShow("U.U.F.O..jpg", 56548, 87413, "We Magicians Still Alive in 2021", "Capu");
             SlideShow("U.U.F.O..jpg", 87348, 118510, "CICADA3302", "JarvisGaming");
             SlideShow("heart of android.jpg", 118510, 131283, "Alone Intelligence", "Ph0eNiiXZ");
@@ -25,7 +25,7 @@ namespace StorybrewScripts
             SlideShow("crystallized.jpg", 201789, 223878, "Crystallized", "Hivie");
             SlideShow("U.U.F.O..jpg", 223792, 246445, "KillerToy", "JarvisGaming");
             SlideShow("U.U.F.O..jpg", 246357, 257231, "WYSI (When You See It)", "Ph0eNiiXZ");
-            SlideShow("Blackmagik Blazing.jpg", 257149, 276490, "Arche", "Dusk");
+            SlideShow("Blackmagik Blazing.jpg", 257149, 276490, "Arche", "Dusk-");
             SlideShow("heart of android.jpg", 276415, 295676, "Tojita Sekai", "rubies87");
             SlideShow("OmegaParts.jpg", 295676, 333139, "ΩΩPARTS", "Axer");
             SlideShow("Blackmagik Blazing.jpg", 333139, 350604, "Secret Boss", "Ph0eNiiXZ");
