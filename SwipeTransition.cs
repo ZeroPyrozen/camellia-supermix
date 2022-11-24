@@ -30,6 +30,7 @@ namespace StorybrewScripts
             Colour 5 = crystallized
             Colour 6 = OmegaParts
             */
+            SpawnSwipeTransition(-113, Color4.Black);
             SpawnSwipeTransition(30965, Colour2);
             SpawnSwipeTransition(56548, Colour3);
             SpawnSwipeTransition(87348, Colour3);
