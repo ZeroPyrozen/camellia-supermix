@@ -53,6 +53,7 @@
   -->
   <ItemGroup>
     <Compile Include="CamelliaSupermix.cs" />
+    <Compile Include="FloatingBackground.cs" />
     <Compile Include="RemoveBackground.cs" />
     <Compile Include="Spectrum.cs" />
   </ItemGroup>

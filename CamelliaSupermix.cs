@@ -207,31 +207,6 @@ namespace StorybrewScripts
                 collabSprite.MoveY(startTime, 380);
             }
             songSprite.Fade(endTime, 0);
-
-            var distance = 5;
-		    var background = GetLayer("Background").CreateSprite("sb/b/"+albumImage, OsbOrigin.Centre);
-            background.Fade(startTime, 1);
-            background.Scale(startTime, Math.Max(854.0 / 640.0, 480.0 / 640.0) + 0.2);
-            double x = 320;
-            double y = 240;
-            double rad = 0;
-            double x1 = x + Random(-distance, distance);
-            double y1 = y + Random(-distance, distance);
-            double rad1 = rad + Random(-0.020, 0.020);
-            int a = 1;
-            for(double i = startTime; i <= endTime - (double)time_lag; i += (double)time_lag)
-            {
-                background.Move(OsbEasing.InOutSine, i, i + time_lag, x, y, x1, y1);
-                background.Rotate(OsbEasing.InOutSine, i, i + time_lag, rad, rad1);
-                x = x1;
-                y = y1;
-                rad = rad1;
-                a++;
-                x1 = x + Random(-distance, distance);
-                y1 = y + Random(-distance, distance);
-                rad1 = rad + Random(0, 0.020) * Math.Pow(-1, a);
-            }
-            background.Fade(endTime, 0);
         }
 
         
