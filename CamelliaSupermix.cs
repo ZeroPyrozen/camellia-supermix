@@ -16,64 +16,41 @@ namespace StorybrewScripts
     {
         FontGenerator collabNameGenerator;
         FontGenerator songTitleGenerator;
-        Color4 capu;
-        Color4 dusk;
-        Color4 jarvisGaming;
-        Color4 ph0eniixz;
-        Color4 hivie;
-        Color4 rubies87;
-        Color4 axer;
         public override void Generate()
         {
             Initialization();
             Timeline(0, 30965);
             SlideShow("Blackmagik Blazing.jpg", 0, 30965, "Lúin Øf CeltchaЯ", "Capu");
-            SwipeTransition(30965, dusk);
             Timeline(30965, 56548);
             SlideShow("60+3+10k.jpg", 30965, 56548, "Newspapers for Magicians", "Dusk");
-            SwipeTransition(56548, capu);
             Timeline(56548, 87413);
             SlideShow("U.U.F.O..jpg", 56548, 87413, "We Magicians Still Alive in 2021", "Capu");
-            SwipeTransition(87348, jarvisGaming);
             Timeline(87348, 118510);
             SlideShow("U.U.F.O..jpg", 87348, 118510, "CICADA3302", "JarvisGaming");
-            SwipeTransition(118510, ph0eniixz);
             Timeline(118510, 131283);
             SlideShow("heart of android.jpg", 118510, 131283, "Alone Intelligence", "Ph0eNiiXZ");
-            SwipeTransition(131283, hivie);
             Timeline(131283, 155333);
             SlideShow("Blackmagik Blazing.jpg", 131283, 155333, "We Could Get More Machinegun      \nPsystyle! (And More Genre Switches)", "Hivie");
-            SwipeTransition(155333, rubies87);
             Timeline(155333, 179333);
             SlideShow("Blackmagik Blazing.jpg", 155333, 179333, "KillerBeast", "rubies87");
-            SwipeTransition(179333, rubies87);
             Timeline(179333, 201789);
             SlideShow("crystallized.jpg", 179333, 201789, "First Town Of This Journey", "rubies87");
-            SwipeTransition(201789, hivie);
             Timeline(201789, 223878);
             SlideShow("crystallized.jpg", 201789, 223878, "Crystallized", "Hivie");
-            SwipeTransition(223878, jarvisGaming);
             Timeline(223792, 246445);
             SlideShow("U.U.F.O..jpg", 223792, 246445, "KillerToy", "JarvisGaming");
-            SwipeTransition(246445, ph0eniixz);
             Timeline(246357, 257231);
             SlideShow("U.U.F.O..jpg", 246357, 257231, "WYSI (When You See It)", "Ph0eNiiXZ");
-            SwipeTransition(257149, dusk);
             Timeline(257149, 276490);
             SlideShow("Blackmagik Blazing.jpg", 257149, 276490, "Arche", "Dusk");
-            SwipeTransition(276415, rubies87);
             Timeline(276415, 295676);
             SlideShow("heart of android.jpg", 276415, 295676, "Tojita Sekai", "rubies87");
-            SwipeTransition(295676, axer);
             Timeline(295676, 333139);
             SlideShow("OmegaParts.jpg", 295676, 333139, "ΩΩPARTS", "Axer");
-            SwipeTransition(333139, ph0eniixz);
             Timeline(333139, 350604);
             SlideShow("Blackmagik Blazing.jpg", 333139, 350604, "Secret Boss", "Ph0eNiiXZ");
-            SwipeTransition(350604, axer);
             Timeline(350604, 412956);
             SlideShow("OmegaParts.jpg", 350604, 412956, "ΩΩPARTS", "Axer");
-            SwipeTransition(412956, Color4.Black);
         }
 
         void Initialization()
@@ -117,14 +94,6 @@ namespace StorybrewScripts
                 Padding = Vector2.Zero,
                 TrimTransparency = true
             });
-
-            capu = new Color4(178, 24, 43, 1);
-            dusk = new Color4(239, 138, 98, 1);
-            jarvisGaming = new Color4(253, 219, 199, 1);
-            ph0eniixz = new Color4(247, 247, 247, 1);
-            hivie = new Color4(209, 229, 240, 1);
-            rubies87 = new Color4(103, 169, 207, 1);
-            axer = new Color4(33, 102, 172, 1);
         }
 
         void Timeline(int startTime, int endTime)
@@ -207,26 +176,6 @@ namespace StorybrewScripts
                 collabSprite.MoveY(startTime, 380);
             }
             songSprite.Fade(endTime, 0);
-        }
-
-        
-
-        void SwipeTransition(int time, Color4 customColor)
-        {
-            string SpritePath = "sb/p.png";
-            Color4 Color = customColor;
-            var sprite = GetLayer("Transition").CreateSprite(SpritePath, OsbOrigin.Centre, new Vector2(320, 240));
-            sprite.ScaleVec(OsbEasing.None, time - 800, time, 900, 700, 900, 700);
-            sprite.Rotate(OsbEasing.None, time - 800, time, 0.2, 0.2);
-            sprite.Move(OsbEasing.InExpo, time - 800, time, 1270, 240, 320, 240);
-            sprite.Color(time, Color); 
-             
-
-            var sprite2 = GetLayer("Transition").CreateSprite(SpritePath, OsbOrigin.Centre, new Vector2(320, 240));
-            sprite2.ScaleVec(OsbEasing.None, time, time + 800, 900, 700, 900, 700);
-            sprite2.Rotate(OsbEasing.None, time, time + 800, 0.2, 0.2);
-            sprite2.Move(OsbEasing.OutExpo, time, time + 800, 320, 240, -630, 240);
-            sprite2.Color(time, Color);
         }
     }
 }

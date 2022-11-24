@@ -8,11 +8,6 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  17672000e50849ce80c446bedd2caa2c:
-    Name: "Background"
-    OsbLayer: Background
-    DiffSpecific: No
-    Visible: Yes
   13a6db40acb04ab299b84f785c724f69:
     Name: "BackgroundOverlay"
     OsbLayer: Background
@@ -30,11 +25,6 @@ Layers:
     Visible: Yes
   a904ef24f5484820a0c19220908610e0:
     Name: "Metadata"
-    OsbLayer: Background
-    DiffSpecific: No
-    Visible: Yes
-  b233d7ad2ee04ac9bed58a858144e614:
-    Name: "Transition"
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes
