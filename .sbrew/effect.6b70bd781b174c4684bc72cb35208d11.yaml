@@ -18,11 +18,6 @@ Layers:
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes
-  85375128eff449aba685ff9b631e9bb1:
-    Name: "TimelineExp"
-    OsbLayer: Background
-    DiffSpecific: No
-    Visible: Yes
   a904ef24f5484820a0c19220908610e0:
     Name: "Metadata"
     OsbLayer: Background

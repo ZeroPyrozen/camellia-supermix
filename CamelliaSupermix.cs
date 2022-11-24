@@ -19,37 +19,21 @@ namespace StorybrewScripts
         public override void Generate()
         {
             Initialization();
-            Timeline(0, 30965);
             SlideShow("Blackmagik Blazing.jpg", 0, 30965, "Lúin Øf CeltchaЯ", "Capu");
-            Timeline(30965, 56548);
             SlideShow("60+3+10k.jpg", 30965, 56548, "Newspapers for Magicians", "Dusk");
-            Timeline(56548, 87413);
             SlideShow("U.U.F.O..jpg", 56548, 87413, "We Magicians Still Alive in 2021", "Capu");
-            Timeline(87348, 118510);
             SlideShow("U.U.F.O..jpg", 87348, 118510, "CICADA3302", "JarvisGaming");
-            Timeline(118510, 131283);
             SlideShow("heart of android.jpg", 118510, 131283, "Alone Intelligence", "Ph0eNiiXZ");
-            Timeline(131283, 155333);
             SlideShow("Blackmagik Blazing.jpg", 131283, 155333, "We Could Get More Machinegun      \nPsystyle! (And More Genre Switches)", "Hivie");
-            Timeline(155333, 179333);
             SlideShow("Blackmagik Blazing.jpg", 155333, 179333, "KillerBeast", "rubies87");
-            Timeline(179333, 201789);
             SlideShow("crystallized.jpg", 179333, 201789, "First Town Of This Journey", "rubies87");
-            Timeline(201789, 223878);
             SlideShow("crystallized.jpg", 201789, 223878, "Crystallized", "Hivie");
-            Timeline(223792, 246445);
             SlideShow("U.U.F.O..jpg", 223792, 246445, "KillerToy", "JarvisGaming");
-            Timeline(246357, 257231);
             SlideShow("U.U.F.O..jpg", 246357, 257231, "WYSI (When You See It)", "Ph0eNiiXZ");
-            Timeline(257149, 276490);
             SlideShow("Blackmagik Blazing.jpg", 257149, 276490, "Arche", "Dusk");
-            Timeline(276415, 295676);
             SlideShow("heart of android.jpg", 276415, 295676, "Tojita Sekai", "rubies87");
-            Timeline(295676, 333139);
             SlideShow("OmegaParts.jpg", 295676, 333139, "ΩΩPARTS", "Axer");
-            Timeline(333139, 350604);
             SlideShow("Blackmagik Blazing.jpg", 333139, 350604, "Secret Boss", "Ph0eNiiXZ");
-            Timeline(350604, 412956);
             SlideShow("OmegaParts.jpg", 350604, 412956, "ΩΩPARTS", "Axer");
         }
 
@@ -94,48 +78,6 @@ namespace StorybrewScripts
                 Padding = Vector2.Zero,
                 TrimTransparency = true
             });
-        }
-
-        void Timeline(int startTime, int endTime)
-        {
-            var beatDuration = Beatmap.GetTimingPointAt(startTime).BeatDuration / 4;
-            double lineOpacity = 0.4;
-            var upperLeftCornerPosition = new Vector2(2, 278);
-            var bottomRightCornerPosition = new Vector2(182, 458);
-            var lineThickness = 5;
-            var lineLength = 180;
-            var secondaryLeftCornerPosition = new Vector2(upperLeftCornerPosition.X, upperLeftCornerPosition.Y + lineThickness);
-            var secondaryRightCornerPosition = new Vector2(bottomRightCornerPosition.X, bottomRightCornerPosition.Y - lineThickness);
-
-            var upperLine2 = GetLayer("TimelineExp").CreateSprite("sb/p.png", OsbOrigin.TopLeft, upperLeftCornerPosition);
-            var lowerLine2 = GetLayer("TimelineExp").CreateSprite("sb/p.png", OsbOrigin.BottomRight, bottomRightCornerPosition);
-            var leftLine2 = GetLayer("TimelineExp").CreateSprite("sb/p.png", OsbOrigin.TopLeft, secondaryLeftCornerPosition);
-            var rightLine2 = GetLayer("TimelineExp").CreateSprite("sb/p.png", OsbOrigin.BottomRight, secondaryRightCornerPosition);
-
-            upperLine2.Fade(startTime, lineOpacity);
-            upperLine2.Fade(endTime + beatDuration, 0);
-            upperLine2.ScaleVec(OsbEasing.None, startTime, endTime, lineThickness, lineThickness, lineLength, lineThickness);
-            upperLine2.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, lineLength, lineThickness, lineLength, 0);
-
-            lowerLine2.Fade(startTime, lineOpacity);
-            lowerLine2.Fade(endTime + beatDuration, 0);
-            lowerLine2.ScaleVec(OsbEasing.None, startTime, endTime, lineThickness, lineThickness, lineLength, lineThickness);
-            lowerLine2.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, lineLength, lineThickness, lineLength, 0);
-
-            leftLine2.Fade(startTime, lineOpacity);
-            leftLine2.Fade(endTime + beatDuration, 0);
-            leftLine2.ScaleVec(OsbEasing.None, startTime, endTime, lineThickness, 0, lineThickness, lineLength - lineThickness*2);
-            leftLine2.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, lineThickness, lineLength - lineThickness*2, 0, lineLength - lineThickness*2);
-
-            rightLine2.Fade(startTime, lineOpacity);
-            rightLine2.Fade(endTime + beatDuration, 0);
-            rightLine2.ScaleVec(OsbEasing.None, startTime, endTime, lineThickness, 0, lineThickness, lineLength - lineThickness*2);
-            rightLine2.ScaleVec(OsbEasing.In, endTime+10, endTime + beatDuration, lineThickness, lineLength - lineThickness*2, 0, lineLength - lineThickness*2);
-
-            upperLine2.Additive(startTime, endTime);
-            lowerLine2.Additive(startTime, endTime);
-            leftLine2.Additive(startTime, endTime);
-            rightLine2.Additive(startTime, endTime);
         }
 
         void SlideShow(string albumImage, int startTime, int endTime, string songTitle, string collaborator)

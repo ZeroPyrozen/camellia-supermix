@@ -57,6 +57,7 @@
     <Compile Include="RemoveBackground.cs" />
     <Compile Include="Spectrum.cs" />
     <Compile Include="SwipeTransition.cs" />
+    <Compile Include="Timeline.cs" />
   </ItemGroup>
   <ItemGroup />
 </Project>

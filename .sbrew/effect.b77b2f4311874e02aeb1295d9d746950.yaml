@@ -1,0 +1,36 @@
+﻿FormatVersion: 7
+Name: "Timeline"
+Script: "Timeline"
+Multithreaded: No
+Config:
+  LinePath:
+    Type: "System.String"
+    Value: "sb/p.png"
+  TopLeftPosition:
+    Type: "OpenTK.Vector2"
+    Value: "2,278"
+  BottomRightPosition:
+    Type: "OpenTK.Vector2"
+    Value: "182,458"
+  LineOpacity:
+    Type: "System.Double"
+    Value: "0.4"
+  LineThickness:
+    Type: "System.Int32"
+    Value: "5"
+  Additive:
+    Type: "System.Boolean"
+    Value: "True"
+  BeatDivisor:
+    Type: "System.Int32"
+    Value: "4"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  7020c11caba34f759138755075744d7c:
+    Name: "Timeline"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
