@@ -8,7 +8,7 @@ namespace StorybrewScripts
     {
         public override void Generate()
         {
-		    SpawnFloatingBackground("sb/b/Blackmagik Blazing.jpg", 0, 30965);
+		    SpawnFloatingBackground("sb/b/Blackmagik Blazing.jpg", 377, 30965);
             SpawnFloatingBackground("sb/b/60+3+10k.jpg", 30965, 56548);
             SpawnFloatingBackground("sb/b/U.U.F.O..jpg", 56548, 87413);
             SpawnFloatingBackground("sb/b/U.U.F.O..jpg", 87348, 118510);

@@ -14,7 +14,7 @@ namespace StorybrewScripts
         public override void Generate()
         {
             Initialization();
-            SlideShow("Blackmagik Blazing.jpg", 0, 30965, "Lúin Øf CeltchaЯ", "Capu");
+            SlideShow("Blackmagik Blazing.jpg", 377, 30965, "Lúin Øf CeltchaЯ", "Capu");
             SlideShow("60+3+10k.jpg", 30965, 56548, "Newspapers for Magicians", "Dusk");
             SlideShow("U.U.F.O..jpg", 56548, 87413, "We Magicians Still Alive in 2021", "Capu");
             SlideShow("U.U.F.O..jpg", 87348, 118510, "CICADA3302", "JarvisGaming");
@@ -67,7 +67,9 @@ namespace StorybrewScripts
             verticalLine.Fade(412956, 0);
 
             OsbSprite solid = GetLayer("Solid").CreateSprite("sb/p.png");
-            solid.ScaleVec(412956, 854, 480);
+            solid.ScaleVec(-4705, 854, 480);
+            solid.Fade(-4705, 1);
+            solid.Fade(377, 0);
             solid.Fade(412956, 1);
             solid.Fade(435044, 0);
             solid.Color(412956, Color4.Black);

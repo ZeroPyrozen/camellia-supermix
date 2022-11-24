@@ -67,7 +67,7 @@ namespace StorybrewScripts
         {
             Initialize();
 
-            GenerateSpectrum(0, 30965);
+            GenerateSpectrum(377, 30965);
             GenerateSpectrum(30965, 56548);
             GenerateSpectrum(56548, 118510);
             GenerateSpectrum(118510, 131283);
