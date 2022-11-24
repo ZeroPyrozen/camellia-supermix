@@ -202,20 +202,20 @@ namespace StorybrewScripts
         {
             var time_lag = Beatmap.GetTimingPointAt(startTime).BeatDuration / 0.25;
             var album = GetLayer("Metadata").CreateSprite("sb/a/"+albumImage, OsbOrigin.CentreLeft, new Vector2(12, 367.5f));
-            album.Fade(startTime, startTime + time_lag, 0, 1);
+            album.Fade(startTime, 1);
             album.Fade(endTime, 0);
             album.Scale(startTime, 0.25);
 
             var collabText = collabNameGenerator.GetTexture(collaborator);
             var collabSprite = GetLayer("Transition").CreateSprite(collabText.Path, OsbOrigin.BottomLeft, new Vector2(192, 445));
-            collabSprite.Fade(startTime, startTime + time_lag, 0, 1);
+            collabSprite.Fade(startTime, 1);
             collabSprite.Scale(startTime, 0.75);
             collabSprite.Fade(endTime, 0);
 
 
             var songText = songTitleGenerator.GetTexture(songTitle);
             var songSprite = GetLayer("Transition").CreateSprite(songText.Path, OsbOrigin.TopLeft, new Vector2(192, 288));
-            songSprite.Fade(startTime, startTime + time_lag, 0, 1);
+            songSprite.Fade(startTime, 1);
             if(songTitle.Length < "We Could Get More Machinegun      \nPsystyle! (And More Genre Switches)".Length)
             {
                 if(songTitle.Length < "We Magicians Still Alive in 2021".Length)
