@@ -1,4 +1,3 @@
-using StorybrewCommon.Mapset;
 using StorybrewCommon.Scripting;
 
 namespace StorybrewScripts
