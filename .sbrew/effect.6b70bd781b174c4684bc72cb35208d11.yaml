@@ -1,0 +1,40 @@
+﻿FormatVersion: 7
+Name: "CamelliaSupermix"
+Script: "CamelliaSupermix"
+Multithreaded: No
+Config:
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  17672000e50849ce80c446bedd2caa2c:
+    Name: "Background"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  13a6db40acb04ab299b84f785c724f69:
+    Name: "BackgroundOverlay"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  0a8b43552b354dea9f97c8164a117cae:
+    Name: "Playfield"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  85375128eff449aba685ff9b631e9bb1:
+    Name: "TimelineExp"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  a904ef24f5484820a0c19220908610e0:
+    Name: "Metadata"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  b233d7ad2ee04ac9bed58a858144e614:
+    Name: "Transition"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
