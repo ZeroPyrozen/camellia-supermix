@@ -207,14 +207,14 @@ namespace StorybrewScripts
             album.Scale(startTime, 0.25);
 
             var collabText = collabNameGenerator.GetTexture(collaborator);
-            var collabSprite = GetLayer("Transition").CreateSprite(collabText.Path, OsbOrigin.BottomLeft, new Vector2(192, 445));
+            var collabSprite = GetLayer("Metadata").CreateSprite(collabText.Path, OsbOrigin.BottomLeft, new Vector2(192, 445));
             collabSprite.Fade(startTime, 1);
             collabSprite.Scale(startTime, 0.75);
             collabSprite.Fade(endTime, 0);
 
 
             var songText = songTitleGenerator.GetTexture(songTitle);
-            var songSprite = GetLayer("Transition").CreateSprite(songText.Path, OsbOrigin.TopLeft, new Vector2(192, 288));
+            var songSprite = GetLayer("Metadata").CreateSprite(songText.Path, OsbOrigin.TopLeft, new Vector2(192, 288));
             songSprite.Fade(startTime, 1);
             if(songTitle.Length < "We Could Get More Machinegun      \nPsystyle! (And More Genre Switches)".Length)
             {
