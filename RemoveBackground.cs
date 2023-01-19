@@ -1,12 +1,17 @@
 using StorybrewCommon.Scripting;
+using StorybrewCommon.Storyboarding;
 
 namespace StorybrewScripts
 {
     public class RemoveBackground : StoryboardObjectGenerator
     {
+        [Configurable]
+        public string BackgroundPath = "bg.jpg";
         public override void Generate()
         {
-            GetLayer("").CreateSprite(Beatmap.BackgroundPath).Fade(0,0);
+            if(string.IsNullOrEmpty(BackgroundPath))
+                BackgroundPath = Beatmap.BackgroundPath;
+            GetLayer("").CreateSprite(BackgroundPath).Fade(0,0);
         }
     }
 }
