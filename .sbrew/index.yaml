@@ -1,12 +1,14 @@
 ﻿FormatVersion: 7
 BeatmapId: 3736981
-BeatmapName: "Oni"
+BeatmapName: "Taiko Supercollab"
 Assemblies:
 Layers:
-  - "49149b92421d4802881364b48d73251f"
+  - "22fd07f1375546cd8f58e5e9975ce3bd"
   - "0ab85d0d055e43f2acf785fce5c46bd1"
   - "13a6db40acb04ab299b84f785c724f69"
-  - "3fc908998e7345f7b68bc5d8254cea84"
+  - "1f72f22d3933451d9a1cb8b8b54680f0"
+  - "a8485eed10694562a99861b34a023da5"
+  - "5041ee25a73745c586f8311346a17d88"
   - "a3515e784e704e18a17d9baaf52ff7e0"
   - "1961c9059ed7462ca9bc0b676323f87b"
   - "beeaedd6eef048cd9c1948fe0a621788"

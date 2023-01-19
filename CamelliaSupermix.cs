@@ -38,13 +38,13 @@ namespace StorybrewScripts
 
             var playfieldBar = GetLayer("Playfield").CreateSprite("sb/p.png", OsbOrigin.TopLeft, new Vector2(-107, 139));
             playfieldBar.Fade(0, 1);
-            playfieldBar.Fade(417086, 0);
+            playfieldBar.Fade(412956, 0);
             playfieldBar.ScaleVec(OsbEasing.OutExpo, 0, beatDuration * 3, 0, 116, 854, 116);
             playfieldBar.Color(0, Color4.Black);
 
             var backgroundOverlay = GetLayer("BackgroundOverlay").CreateSprite("sb/p.png", OsbOrigin.Centre, new Vector2(320, 240));
             backgroundOverlay.Fade(0, 0.45);
-            backgroundOverlay.Fade(417086, 0);
+            backgroundOverlay.Fade(412956, 0);
             backgroundOverlay.ScaleVec(0, 854, 480);
             backgroundOverlay.Color(0, Color4.Black);
 
@@ -52,7 +52,7 @@ namespace StorybrewScripts
             timeBar.Fade(0, 0.4);
             timeBar.Fade(412956, 0);
             timeBar.Additive(0, 412956);
-            timeBar.ScaleVec(377, 417086, 0, 5, 854, 5);
+            timeBar.ScaleVec(377, 412956, 0, 5, 854, 5);
 
             OsbSprite gradient = GetLayer("Gradient").CreateSprite("sb/grad.png", OsbOrigin.CentreRight, new Vector2(210, 328));
             gradient.ScaleVec(OsbEasing.OutExpo, beatDuration * 0.75, beatDuration * 2.75, 0, 0.6, 0.05, 0.6);
@@ -67,11 +67,11 @@ namespace StorybrewScripts
             verticalLine.Fade(412956, 0);
 
             OsbSprite solid = GetLayer("Solid").CreateSprite("sb/p.png");
-            solid.ScaleVec(-4705, 854, 480);
-            solid.Fade(-4705, 1);
+            solid.ScaleVec(-beatDuration, 854, 480);
+            solid.Fade(-beatDuration, 1);
             solid.Fade(377, 0);
             solid.Fade(412956, 1);
-            solid.Fade(435044, 0);
+            solid.Fade(412956, 0);
             solid.Color(412956, Color4.Black);
 
             mapperFontGenerator = LoadFont("sb/f/m", new FontDescription

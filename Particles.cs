@@ -14,9 +14,9 @@ namespace StorybrewScripts
         {
             Initialize();
 
-            GenerateMovingUpParticles("sb/d.png", -beatDuration * 12, 413021);
-            GenerateHorizontalMovingParticles("sb/d.png", 0, 413021);
-            GenerateSpectrumParticles("sb/d.png", 0, 413021);
+            GenerateMovingUpParticles("sb/d.png", -beatDuration, 402456);
+            GenerateHorizontalMovingParticles("sb/d.png", 0, 405782);
+            GenerateSpectrumParticles("sb/d.png", 0, 402456);
         }
 
         private void Initialize()
@@ -29,7 +29,7 @@ namespace StorybrewScripts
             Bitmap bitmap = GetMapsetBitmap(texturePath);
             double timestep = particleDuration / particleAmount;
 
-            using (OsbSpritePool pool = new OsbSpritePool(GetLayer(""), texturePath, OsbOrigin.Centre,
+            using (OsbSpritePool pool = new OsbSpritePool(GetLayer("VerticalParticle"), texturePath, OsbOrigin.Centre,
                        (sprite, spriteStartTime, spriteEndTime) => { sprite.Scale(spriteStartTime, Random(0.02f, 0.05f)); }))
             {
                 pool.MaxPoolDuration = 72727;
@@ -38,6 +38,8 @@ namespace StorybrewScripts
                 {
                     float moveSpeed = Random(40f, 120f);
                     double spriteEndTime = spriteStartTime + Math.Ceiling(480f / moveSpeed) * particleDuration;
+                    if(spriteEndTime > endTime)
+                        spriteEndTime = spriteStartTime + Math.Ceiling(480f / Random(80f, 120f)) * particleDuration;
                     OsbSprite sprite = pool.Get(spriteStartTime, spriteEndTime);
 
                     float startX = Random(-107f, 747f);
@@ -55,7 +57,7 @@ namespace StorybrewScripts
         {
             double timestep = particleDuration / particleAmount;
 
-            using (OsbSpritePool pool = new OsbSpritePool(GetLayer(""), texturePath, OsbOrigin.Centre,
+            using (OsbSpritePool pool = new OsbSpritePool(GetLayer("HorizontalParticle"), texturePath, OsbOrigin.Centre,
                        (sprite, spriteStartTime, spriteEndTime) => { sprite.Scale(spriteStartTime, Random(0.01f, 0.03f)); }))
             {
                 pool.MaxPoolDuration = 72727;
@@ -81,7 +83,7 @@ namespace StorybrewScripts
         {
             double timestep = particleDuration / particleAmount;
 
-            using (OsbSpritePool pool = new OsbSpritePool(GetLayer(""), texturePath, OsbOrigin.Centre,
+            using (OsbSpritePool pool = new OsbSpritePool(GetLayer("SpectrumParticle"), texturePath, OsbOrigin.Centre,
                        (sprite, spriteStartTime, spriteEndTime) => { sprite.Scale(spriteStartTime, Random(0.01f, 0.04f)); }))
             {
                 pool.MaxPoolDuration = 72727;

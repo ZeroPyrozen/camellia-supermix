@@ -8,8 +8,18 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  3fc908998e7345f7b68bc5d8254cea84:
-    Name: ""
+  1f72f22d3933451d9a1cb8b8b54680f0:
+    Name: "VerticalParticle"
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes
+  a8485eed10694562a99861b34a023da5:
+    Name: "SpectrumParticle"
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes
+  5041ee25a73745c586f8311346a17d88:
+    Name: "HorizontalParticle"
     OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes
